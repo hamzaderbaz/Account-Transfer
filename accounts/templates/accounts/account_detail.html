@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Detail</title>
+</head>
+<body>
+    <h1>Account Detail</h1>
+    <p><strong>ID:</strong> {{ account.id }}</p>
+    <p><strong>Name:</strong> {{ account.name }}</p>
+    <p><strong>Balance:</strong> {{ account.balance }}</p>
+    <br>
+    <a href="{% url 'list_accounts' %}">Back to Account List</a>
+</body>
+</html>
