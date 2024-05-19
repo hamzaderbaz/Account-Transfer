@@ -6,6 +6,9 @@
     <title>Account List</title>
 </head>
 <body>
+    <a href="{% url 'import_accounts' %}"><button>Import Accounts</button></a>
+    <a href="{% url 'transfer_funds' %}"><button>Transfer Funds</button></a>
+
     <h1>Account List</h1>
     <table border="1">
         <thead>
@@ -26,6 +29,5 @@
         </tbody>
     </table>
     <br>
-    <a href="{% url 'transfer_funds' %}">Transfer Funds</a>
 </body>
 </html>

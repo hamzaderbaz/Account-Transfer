@@ -46,7 +46,6 @@ class TransferFundsViewTestCase(TestCase):
         self.assertEqual(self.account1.balance, Decimal('50.00'))
         self.assertEqual(self.account2.balance, Decimal('250.00'))
 
-        # Check if the transaction is recorded
         self.assertEqual(Transaction.objects.count(), 1)
         transaction = Transaction.objects.first()
         self.assertEqual(transaction.from_account, self.account1)
@@ -57,7 +56,7 @@ class TransferFundsViewTestCase(TestCase):
         form_data = {
             'from_account': self.account1.id,
             'to_account': self.account2.id,
-            'amount': '150.00'  # Attempt to transfer more than balance
+            'amount': '150.00'  
         }
         response = self.client.post(reverse('transfer_funds'), form_data)
         self.assertEqual(response.status_code, 400)
@@ -75,9 +74,9 @@ class AccountImportViewTestCase(TestCase):
 
     def test_import_accounts_view_post_success(self):
         csv_content = """ID,Name,Balance
-1,Account 1,100.00
-2,Account 2,200.00
-3,Account 3,300.00
+e1b9f419-f587-47bd-ab4f-efd75b27e094,Account 1,100.00
+e1b9f419-f587-47bd-ab4f-efd75b27e092,Account 2,200.00
+e1b9f419-f587-47bd-ab4f-efd75b27e091,Account 3,300.00
 """
         csv_file = SimpleUploadedFile("accounts.csv", csv_content.encode(), content_type="text/csv")
         response = self.client.post(reverse('import_accounts'), {'file': csv_file})
